@@ -22,7 +22,7 @@ class KeyboardMediaQueryState extends State<KeyboardMediaQuery >{
 
   @override
   Widget build(BuildContext context) {
-    
+
     // TODO: implement build
     var data = MediaQuery.maybeOf(context);
     if(data == null){
@@ -41,9 +41,16 @@ class KeyboardMediaQueryState extends State<KeyboardMediaQuery >{
   }
 
   onUpdateHeight(){
-    WidgetsBinding.instance!.addPostFrameCallback((_){
+    // WidgetsBinding.instance!.addPostFrameCallback((_){
+    //   setState(()=>{});
+    // });
+    try{
       setState(()=>{});
-    });
+    }catch(_){
+      Future.delayed(Duration(milliseconds: 16), (){
+        this.onUpdateHeight();
+      });
+    }
   }
 
   @override
