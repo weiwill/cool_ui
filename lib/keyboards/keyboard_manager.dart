@@ -237,7 +237,7 @@ class CoolKeyboard {
     if (_pageKey != null &&
         _pageKey!.currentState != null &&
         clearTask == null) {
-      _pageKey!.currentState!.updateHeight(_keyboardHeightNotifier.value);
+      _pageKey!.currentState!.updateHeight(_currentKeyboard!.getHeight(_context!));
     }
   }
 }
