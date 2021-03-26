@@ -155,6 +155,7 @@ class CoolKeyboard {
   }
 
   static openKeyboard() {
+    _currentKeyboard?.onOpenKeyboard?.call();
     var keyboardHeight = _currentKeyboard!.getHeight(_context!);
     _keyboardHeightNotifier.value = keyboardHeight;
     if (_root!.hasKeyboard && _pageKey != null) return;
@@ -186,6 +187,7 @@ class CoolKeyboard {
   }
 
   static hideKeyboard({bool animation = true}) {
+    _currentKeyboard?.onHideKeyboard?.call();
     if (clearTask != null) {
       if (clearTask!.isActive) {
         clearTask!.cancel();
@@ -252,7 +254,9 @@ class CoolKeyboard {
 class KeyboardConfig {
   final KeyboardBuilder builder;
   final GetKeyboardHeight getHeight;
-  const KeyboardConfig({required this.builder, required this.getHeight});
+  final VoidCallback? onOpenKeyboard;
+  final VoidCallback? onHideKeyboard;
+  const KeyboardConfig({required this.builder,required this.getHeight, this.onOpenKeyboard, this.onHideKeyboard});
 }
 
 class InputClient {
