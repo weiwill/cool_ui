@@ -30,8 +30,7 @@ class CoolKeyboard {
   static interceptorInput() {
     if (isInterceptor) return;
     isInterceptor = true;
-    ServicesBinding.instance!.defaultBinaryMessenger
-        .setMockMessageHandler("flutter/textinput", _textInputHanlde);
+    TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger.setMockMessageHandler("flutter/textinput", _textInputHanlde);
   }
 
   static Future<ByteData?> _textInputHanlde(ByteData? data) async {
