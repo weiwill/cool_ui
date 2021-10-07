@@ -4,6 +4,16 @@
 
 <img width="38%" height="38%" src="./images/custom_keyboard.gif"/>
 
+## Flutter 2.5后添加的步骤
+替换runApp为runMockApp
+```dart
+void main() {
+  // runApp(MyApp()); // 旧的
+  runMockApp(KeyboardRootWidget(child: MyApp())); // 新的
+}
+```
+
+
 ## Step1
 编写个性化的键盘
 
@@ -102,3 +112,7 @@ TextField(
 ### sendPerformAction(TextInputAction action)
 ///发送其他Action
 
+
+## 特别问题讲解:
+1. 报错: CoolKeyboard can only be used in MockBinding<br/>
+答: 可能是因为调用了WidgetsFlutterBinding.ensureInitialized()导致的,请将WidgetsFlutterBinding.ensureInitialized() 替换成 MockBinding.ensureInitialized()
