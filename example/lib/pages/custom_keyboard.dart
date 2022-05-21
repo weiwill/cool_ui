@@ -1,4 +1,3 @@
-import 'package:cool_ui_example/keyboards/test_keyboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:cool_ui/cool_ui.dart';

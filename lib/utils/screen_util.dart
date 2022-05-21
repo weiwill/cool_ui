@@ -13,12 +13,10 @@ double _designW = 360.0;
 double _designH = 640.0;
 double _designD = 3.0;
 
-/**
- * 配置设计稿尺寸（单位 dp or pt）
- * w 宽
- * h 高
- * density 像素密度
- */
+/// 配置设计稿尺寸（单位 dp or pt）
+/// w 宽
+/// h 高
+/// density 像素密度
 void setDesignWHD(double w, double h, {double density: 3.0}) {
   _designW = w;
   _designH = h;
@@ -128,14 +126,14 @@ class _ScreenUtil {
   /// 返回根据屏幕宽适配后尺寸（单位 dp or pt）
   /// size 单位 dp or pt
   static double getScaleW(BuildContext context, double size) {
-    if (context == null || getScreenW(context) == 0.0) return size;
+    if (getScreenW(context) == 0.0) return size;
     return size * getScreenW(context) / _designW;
   }
 
   /// 返回根据屏幕高适配后尺寸 （单位 dp or pt）
   /// size 单位 dp or pt
   static double getScaleH(BuildContext context, double size) {
-    if (context == null || getScreenH(context) == 0.0) return size;
+    if (getScreenH(context) == 0.0) return size;
     return size * getScreenH(context) / _designH;
   }
 
@@ -144,7 +142,7 @@ class _ScreenUtil {
   /// sySystem 是否跟随系统字体大小设置，默认 true。
   static double getScaleSp(BuildContext context, double fontSize,
       {bool sySystem: true}) {
-    if (context == null || getScreenW(context) == 0.0) return fontSize;
+    if (getScreenW(context) == 0.0) return fontSize;
     return (sySystem ? MediaQuery
         .of(context)
         .textScaleFactor : 1.0) * fontSize * getScreenW(context) / _designW;

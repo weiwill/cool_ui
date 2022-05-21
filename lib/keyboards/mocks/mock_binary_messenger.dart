@@ -7,7 +7,7 @@ class MockBinaryMessenger extends BinaryMessenger {
  /// Creates a [MockBinaryMessenger] instance.
   ///
   /// The [delegate] instance must not be null.
-  MockBinaryMessenger(this.delegate): assert(delegate != null);
+  MockBinaryMessenger(this.delegate);
 
   /// The delegate [BinaryMessenger].
   final BinaryMessenger delegate;

@@ -22,16 +22,16 @@ class _WidgetUtil {
   void asyncPrepare(
       BuildContext context, bool isOnce, ValueChanged<Rect> onCallBack) {
     if (_hasMeasured) return;
-    WidgetsBinding.instance!.addPostFrameCallback((Duration timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((Duration timeStamp) {
       RenderBox? box = context.findRenderObject() as RenderBox?;
-      if (box != null && box.semanticBounds != null) {
+      if (box != null) {
         if (isOnce) _hasMeasured = true;
         double width = box.semanticBounds.width;
         double height = box.semanticBounds.height;
         if (_width != width || _height != height) {
           _width = width;
           _height = height;
-          if (onCallBack != null) onCallBack(box.semanticBounds);
+          onCallBack(box.semanticBounds);
         }
       }
     });
@@ -40,7 +40,7 @@ class _WidgetUtil {
   /// Widget渲染监听.
   void asyncPrepares(bool isOnce, ValueChanged<Rect?>? onCallBack) {
     if (_hasMeasured) return;
-    WidgetsBinding.instance!.addPostFrameCallback((Duration timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((Duration timeStamp) {
       if (isOnce) _hasMeasured = true;
       if (onCallBack != null) onCallBack(null);
     });
@@ -50,9 +50,7 @@ class _WidgetUtil {
   ///获取widget Rect
   static Rect getWidgetBounds(BuildContext context) {
     RenderBox? box = context.findRenderObject() as RenderBox?;
-    return (box != null)
-        ? box.semanticBounds
-        : Rect.zero;
+    return (box != null) ? box.semanticBounds : Rect.zero;
   }
 
   ///Get the coordinates of the widget on the screen.Widgets must be rendered completely.

@@ -11,7 +11,7 @@ class MockBinding extends WidgetsFlutterBinding {
   static WidgetsBinding ensureInitialized() {
     // if (WidgetsBinding.instance == null)
     //   MockBinding();
-    // return WidgetsBinding.instance!;
+    // return WidgetsBinding.instance;
     return MockBinding.instance;
   }
 
