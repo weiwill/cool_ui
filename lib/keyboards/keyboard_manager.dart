@@ -261,7 +261,8 @@ class CoolKeyboard {
     if (_pageKey != null &&
         _pageKey!.currentState != null &&
         clearTask == null) {
-      _pageKey!.currentState!.updateHeight(_currentKeyboard!.getHeight(_context!));
+      _pageKey!.currentState!
+          .updateHeight(_currentKeyboard!.getHeight(_context!));
     }
   }
 }
@@ -271,7 +272,11 @@ class KeyboardConfig {
   final GetKeyboardHeight getHeight;
   final VoidCallback? onOpenKeyboard;
   final VoidCallback? onHideKeyboard;
-  const KeyboardConfig({required this.builder,required this.getHeight, this.onOpenKeyboard, this.onHideKeyboard});
+  const KeyboardConfig(
+      {required this.builder,
+      required this.getHeight,
+      this.onOpenKeyboard,
+      this.onHideKeyboard});
 }
 
 class InputClient {
