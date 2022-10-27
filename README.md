@@ -6,6 +6,18 @@
 
 Usage Add this to your package's pubspec.yaml file: 
 
+Flutter >=3.3
+``` yaml
+dependencies:
+  cool_ui: "^1.3.0"
+```
+
+Flutter >=3.0
+``` yaml
+dependencies:
+  cool_ui: "^1.2.0"
+```
+
 Flutter >=2.5
 ``` yaml
 dependencies:
